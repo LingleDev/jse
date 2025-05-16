@@ -11,7 +11,7 @@ Installing JSE is pretty simple
 
 ## Usage
 
-JSE uses async/await, so you must await _everything_ if you don't want the program to scream at you.
+JSE uses async/await, so you must await _everything_ if you want the program to work.
 
 ```js
 // Require JSE
