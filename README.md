@@ -23,9 +23,10 @@ const jse = require('jse')
  * @param {String} name Name of the database to create
  * @param {String} path The path to the folder where the database file will be held
  * @param {Boolean} persistent Whether the database will persist when the program exits. Defaults to true
+ * @param {Boolean} polite Polite mode disables overwriting, and makes the program tell you no when you try to overwrite stuff. Defaults to false.
  * @param {Boolean} poe Print on exit - if true, the program will print the database file when the program exits. Defaults to false
 */
-const TestDB = new jse("TestDB", __dirname+"/database/")
+const TestDB = new jse("TestDB", __dirname+"/database/", true, false)
 
 // Create a new collection
 const TestCL = await TestDB.create("test");
@@ -35,12 +36,22 @@ await TestCL.set("key", "value") // returns an object with the inputs
 
 let value = await TestCL.get("key") // returns the value of the provided key, if said key exists
 
+// verify a key's existence in the collection
+await TestCL.has('key')
+
+// Delete a key or an Array of keys from the collection
+await TestCL.delete("key");
+
+await TestCL.delete(['key1', 'key2'])
+
 // Console: value
 ```  
 
-> **Be warned**: JSE *does not care* about your data. It always does what you tell it to. If you tell it to overwrite a key, it will *not* warn you. It will overwrite your shit.
+> **Be warned**: Unless polite mode is enabled, JSE *will not care* about your data. If you don't like data being overwritten, turn polite mode on.
 
 You can also access the full list of collections with `JSE.collections`. When you create a new collection, it will store it in a map.
+
+There's also the ability to iterate thru the collections in a database. Like so:  
 
 ```js
 // Get all collections from a database
