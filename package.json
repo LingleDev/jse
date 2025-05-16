@@ -1,0 +1,23 @@
+{
+  "name": "jse",
+  "version": "1.0.0",
+  "description": "A JSON storage engine written for my own personal projects. Reads & writes JSON files, using JS Map notation.",
+  "homepage": "https://github.com/LingleDev/jse#readme",
+  "bugs": {
+    "url": "https://github.com/LingleDev/jse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LingleDev/jse.git"
+  },
+  "license": "MIT",
+  "author": "LingleDev",
+  "type": "commonjs",
+  "main": "JSE.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fs.promises.exists": "^1.1.4"
+  }
+}
