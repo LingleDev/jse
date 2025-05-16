@@ -93,11 +93,14 @@ class JSE {
 			this.initialized
 				.then(() => {
 					name = name.toLowerCase();
-
+					let coll
+					
 					if (!this.collections.has(name)) {
-						let coll = new Collection(this, name);
+						coll = new Collection(this, name);
 
 						this.collections.set(name, coll);
+					} else {
+						coll = this.collections.get(name);
 					}
 
 					coll.init()
