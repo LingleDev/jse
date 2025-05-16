@@ -58,6 +58,6 @@ There's also the ability to iterate thru the collections in a database. Like so:
 // TestDB.each is a wrapper for Map.each
 
 TestDB.each((key,value) => {
-console.log(`Name: ${key}; Value: ${value}`)
+  console.log(`Name: ${key}; Value: ${value}`)
 })
 ```
